@@ -4,7 +4,8 @@ Deverá atualizar o sistema e criar os usuarios designados e o usuário do ansib
 
 ## Tarefas do projeto
 
-- [ ] Atualizar sistema.
-- [ ] Instalar pacotes básicos.
+- [X] Atualizar sistema.
+- [X] Instalar pacotes básicos.
 - [ ] Adicionar usuários designados e ansible.
 - [ ] Configurar sudo para os usuários criados.
+- [ ] Configurar bash dos usuários root e designados.
