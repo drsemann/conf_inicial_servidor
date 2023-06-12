@@ -6,5 +6,5 @@ Deverá atualizar o sistema e criar os usuarios designados e o usuário do ansib
 
 - [ ] Atualizar sistema.
 - [ ] Instalar pacotes básicos.
-- [ ] Adicionar usuários netuno e ansible.
+- [ ] Adicionar usuários designados e ansible.
 - [ ] Configurar sudo para os usuários criados.
