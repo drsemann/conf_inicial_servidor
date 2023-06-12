@@ -1,0 +1,10 @@
+---
+- name: Iniciando Playbook
+  hosts: servers
+  vars:
+    host_user: "root"
+  roles:
+    - update
+    - base
+    - shell  
+...
