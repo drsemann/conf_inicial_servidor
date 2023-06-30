@@ -1,3 +1,5 @@
+export PATH=$PATH:/sbin
+
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -15,7 +17,6 @@ alias l='ls $LS_OPTIONS -lha'
 
 alias grep='grep --color'
 alias egrep='egrep --color'
-alias ip='ip -c'
 alias diff='diff --color'
 alias meuip='curl ifconfig.me; echo;'
 alias tail='grc tail'
@@ -24,11 +25,11 @@ alias ps='grc ps'
 alias netstat='grc netstat'
 alias dig='grc dig'
 alias traceroute='grc traceroute'
-alias aptu='apt update -y;sudo apt upgrade -y'
-alias apti='apt install -y'
-alias aptr='apt remove -y'
-alias apts='apt search'
-alias aptc='apt autoremove -y;sudo apt clean all'
+alias aptu='sudo apt update -y;sudo apt upgrade -y'
+alias apti='sudo apt install -y'
+alias aptr='sudo apt remove -y'
+alias apts='sudo apt search'
+alias aptc='sudo apt autoremove -y;sudo apt clean all'
 alias ifconfig='grc ifconfig'
 alias l='ls -lh'
 alias la='ls -lhra'

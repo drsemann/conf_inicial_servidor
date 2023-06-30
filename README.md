@@ -6,6 +6,6 @@ Deverá atualizar o sistema e criar os usuarios designados e o usuário do ansib
 
 - [X] Atualizar sistema.
 - [X] Instalar pacotes básicos.
-- [ ] Adicionar usuários designados e ansible.
-- [ ] Configurar sudo para os usuários criados.
-- [ ] Configurar bash dos usuários root e designados.
+- [X] Adicionar usuários designados e ansible.
+- [X] Configurar sudo para os usuários criados.
+- [X] Configurar bash dos usuários root e designados.

@@ -2,7 +2,7 @@
 - name: Iniciando Playbook
   hosts: servers
   vars:
-    host_user: "root"
+    host_user: "usuario"
   roles:
     - update
     - base

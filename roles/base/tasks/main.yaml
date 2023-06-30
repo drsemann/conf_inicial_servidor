@@ -6,7 +6,6 @@
       - iotop
       - iftop
       - hdparm
-      - locate
       - traceroute
       - ipcalc
       - whois
@@ -14,23 +13,24 @@
       - net-tools
       - ncdu
       - bash-completion
-      - fzf
       - curl
-      - grc
       - nmap
       - links
       - tcpdump
       - ethtool
       - iptraf-ng
-      - micro
-      - bpytop
       - exa 
       - python3-pip
       - golang
       - bat
-      - zoxide
       - ripgrep
       - pigz
+      - locate
+      - fzf
+      - micro
+      - zoxide
       - vim-nox
+      - bpytop
+      - grc     
     state: present
 ...

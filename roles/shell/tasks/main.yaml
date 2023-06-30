@@ -10,31 +10,70 @@
     cmd: /tmp/starship_install.sh --yes
     executable: /bin/sh
 
-- name: Criando pasta .config
-  ansible.builtin.file:
-      path: /home/{{host_user}}/.config
-      state: directory
-      owner: '{{host_user}}'
-      group: '{{host_user}}'
-      mode: '0775'
+- name: Configuracao Usuario
+  block:
+    - name: Criando pasta .config
+      ansible.builtin.file:
+          path: /home/{{host_user}}/.config
+          state: directory
+          owner: '{{host_user}}'
+          group: '{{host_user}}'
+          mode: '0775'
 
-- name: Copiando configuracao starship
-  ansible.builtin.copy:
-    src: starship.toml
-    dest: /home/{{host_user}}/.config/starship.toml
+    - name: Copiando configuracao starship
+      ansible.builtin.copy:
+        src: starship.toml
+        dest: /home/{{host_user}}/.config/starship.toml
 
-- name: Copiando bashrc
-  ansible.builtin.copy:
-    src: bashrc
-    dest: /home/{{host_user}}/.bashrc
-    mode: '0644'
-    owner: '{{host_user}}'
-    group: '{{host_user}}'
+    - name: Copiando bashrc
+      ansible.builtin.copy:
+        src: bashrc
+        dest: /home/{{host_user}}/.bashrc
+        mode: '0644'
+        owner: '{{host_user}}'
+        group: '{{host_user}}'
 
-- name: Instalando micro plugins
+- name: Configuracao root
+  block:
+    - name: Criando pasta .config
+      ansible.builtin.file:
+          path: /root/.config
+          state: directory
+          owner: 'root'
+          group: 'root'
+          mode: '0775'
+    
+    - name: Copiando configuracao starship
+      ansible.builtin.copy:
+        src: starship.toml
+        dest: /root/.config/starship.toml
+    
+    - name: Copiando bashrc
+      ansible.builtin.copy:
+        src: bashrc
+        dest: /root/.bashrc
+        mode: '0644'
+        owner: 'root'
+        group: 'root'
+
+- name: Instalando micro plugins  
   ansible.builtin.command: '{{ item }}'
   loop:
-    - 'micro -plugin install monokai-dark'
-    - 'micro -plugin install gotham-colors'
-    - 'micro -plugin install nordcolors'
+   - 'micro -plugin install monokai-dark'
+   - 'micro -plugin install gotham-colors'
+   - 'micro -plugin install nordcolors'
+
+- name: Add ansible user
+  user:
+    name: "ansible"
+    groups: sudo
+    append: true
+    state: present
+    createhome: true
+
+- name: Make sudo without password for {{ sudo_user }} user
+  copy:
+    dest: /etc/sudoers.d/80-ansible-sudo-user
+    content: "ansible ALL=(ALL) NOPASSWD:ALL"
+    mode: 0440
 ...
